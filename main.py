@@ -78,9 +78,9 @@ def artist_search():
 
           print(i)
           print(100 * s)
-
-       articleSelected = input("Which title would you like to select?: ")
-       article_select(articleSelected)
+       if len(nlst)>0:
+           articleSelected = input("Which title would you like to select?: ")
+           article_select(articleSelected)
 
 
 # test()
@@ -99,8 +99,9 @@ def article_select(articleSelected):
         print("venue:", i['venue'])
 
         print("--------")
-        for re in i["references"]:
-            ref.append(re)
+        if len(i["references"])>0:
+            for re in i["references"]:
+                ref.append(re)
 
     y = collection.find()
     # print(y)
